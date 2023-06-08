@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 def add(a, b):
-    return a + b
+    """My addition function
 
+    Args:
+        a: first integer
+        b: second integer
 
-if __name__ == "__main__":
-    import sys
-    add(int(sys.argv[1]), int(sys.argv[2]))
+    Returns:
+        The return value. a + b
+    """
+    return (a + b)
