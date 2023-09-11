@@ -2,7 +2,7 @@
 """
     1-my_list.py: class Mylist
 """
-class Mylist(list):
+class MyList(list):
     """
         Mylist class inherit from list class
         Attributes:
