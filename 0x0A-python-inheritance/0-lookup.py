@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """function that return a list of available attributes and methods"""
 
 
