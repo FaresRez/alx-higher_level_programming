@@ -22,6 +22,9 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
+    def __repr__(self) -> str:
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+
     @property
     def width(self):
         return self.__width
@@ -82,4 +85,6 @@ class Rectangle(Base):
         """Displays the rectangle on screen."""
         print('\n'.join(['#' * self.__width for _ in range(self.__height)]))
  
-
+ 
+r1 = Rectangle(4, 6, 2, 1, 12)
+print(r1)
