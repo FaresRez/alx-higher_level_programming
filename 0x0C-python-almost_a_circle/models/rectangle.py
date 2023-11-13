@@ -11,11 +11,41 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
-    def getWidth (self):
+    @property
+    def Width (self):
         return self.__width
-    def getHeight (self):
+    
+    @Width.setter
+    def Width (self, value):
+        if isinstance(value, int):
+            self.__width = value
+        else:
+            raise 
+    
+    @property
+    def Height (self):
         return self.__height
-    def getX (self):
+    
+    @Height.setter
+    def Height (self, value):
+        self.__height = value
+
+    @property
+    def X (self):
         return self.__x
-    def getY (self):
+    
+    @X.setter
+    def X (self, value):
+        self.__x = value
+    
+    @property
+    def Y (self):
         return self.__y
+
+    @Y.setter
+    def Y (self, value):
+        self.__y = value
+        
+
+    
+    
