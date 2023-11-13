@@ -1,18 +1,20 @@
 #!/usr/bin/python3
 from base import Base
-""""""
+"""Rectangle class"""
 
 
 class Rectangle(Base):
+    """Rectangle class inherit from Base"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
-        assert isinstance(width, int) ,"width must be an integer"
-        assert isinstance(height, int) ,"height must be an integer"
-        assert isinstance(x, int) ,"x must be an integer"
-        assert isinstance(y, int) ,"y must be an integer"
-        assert width > 0 ,"width must be > 0"
-        assert height > 0 ,"height must be > 0"
-        assert x >= 0 ,"x must be >= 0"
-        assert y >= 0 ,"y must be >= 0"
+        assert isinstance(width, int), "width must be an integer"
+        assert isinstance(height, int), "height must be an integer"
+        assert isinstance(x, int), "x must be an integer"
+        assert isinstance(y, int), "y must be an integer"
+        assert width > 0, "width must be > 0"
+        assert height > 0, "height must be > 0"
+        assert x >= 0, "x must be >= 0"
+        assert y >= 0, "y must be >= 0"
 
         super().__init__(id)
         self.__width = width
@@ -72,25 +74,22 @@ class Rectangle(Base):
         else:
             self.__y = value
 
+    def area(self):
+        """Returns the area of a rectangle."""
+        return self.__height * self.__width
+    
+    def display(self):
+        """Displays the rectangle on screen."""
+        # for i in range(self.__height):
+        #     for j in range(self.__width):
+        #         print("#", end="")
+        #     print()
+        print('\n'.join(['#' * self.__width for _ in range(self.__height)]))
 
-try:
-    Rectangle(10, "2")
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+r1 = Rectangle(4, 6)
+r1.display()
+print("---")
 
-try:
-    r = Rectangle(10, 2)
-    r.width = -10
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+r1 = Rectangle(2, 2)
+r1.display()
 
-try:
-    r = Rectangle(10, 2)
-    r.x = {}
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
-
-try:
-    Rectangle(10, 2, 3, -1)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
