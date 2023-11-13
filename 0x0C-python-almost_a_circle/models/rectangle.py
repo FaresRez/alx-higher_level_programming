@@ -5,6 +5,15 @@ from base import Base
 
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
+        assert isinstance(width, int) ,"width must be an integer"
+        assert isinstance(height, int) ,"height must be an integer"
+        assert isinstance(x, int) ,"x must be an integer"
+        assert isinstance(y, int) ,"y must be an integer"
+        assert width > 0 ,"width must be > 0"
+        assert height > 0 ,"height must be > 0"
+        assert x >= 0 ,"x must be >= 0"
+        assert y >= 0 ,"y must be >= 0"
+
         super().__init__(id)
         self.__width = width
         self.__height = height
@@ -12,24 +21,24 @@ class Rectangle(Base):
         self.__y = y
 
     @property
-    def Width(self):
+    def width(self):
         return self.__width
 
-    @Width.setter
-    def Width(self, value):
+    @width.setter
+    def width(self, value):
         if not isinstance(value, int):
-            raise TypeError(f"width must be an integer")
+            raise TypeError("width must be an integer")
         elif value <= 0:
             raise ValueError("width must be > 0")
         else:
             self.__width = value
 
     @property
-    def Height(self):
+    def height(self):
         return self.__height
 
-    @Height.setter
-    def Height(self, value):
+    @height.setter
+    def height(self, value):
         if not isinstance(value, int):
             raise TypeError(f"height must be an integer")
         elif value <= 0:
@@ -38,11 +47,11 @@ class Rectangle(Base):
             self.__height = value
 
     @property
-    def X(self):
+    def x(self):
         return self.__x
 
-    @X.setter
-    def X(self, value):
+    @x.setter
+    def x(self, value):
         if not isinstance(value, int):
             raise TypeError(f"x must be an integer")
         elif value < 0:
@@ -51,11 +60,11 @@ class Rectangle(Base):
             self.__x = value
 
     @property
-    def Y(self):
+    def y(self):
         return self.__y
 
-    @Y.setter
-    def Y(self, value):
+    @y.setter
+    def y(self, value):
         if not isinstance(value, int):
             raise TypeError(f"y must be an integer")
         elif value < 0:
