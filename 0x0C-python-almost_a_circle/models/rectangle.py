@@ -7,6 +7,7 @@ class Rectangle(Base):
     """Rectangle class inherit from Base"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """the init method"""
         assert isinstance(width, int), "width must be an integer"
         assert isinstance(height, int), "height must be an integer"
         assert isinstance(x, int), "x must be an integer"
@@ -23,14 +24,18 @@ class Rectangle(Base):
         self.__y = y
 
     def __repr__(self) -> str:
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        """representation of the object"""
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} \
+- {self.__width}/{self.__height}"
 
     @property
     def width(self):
+        """width of rectangle"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """set new width for rectangle"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif value <= 0:
@@ -40,10 +45,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """height of rectangle"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """set new height for rectangle"""
         if not isinstance(value, int):
             raise TypeError(f"height must be an integer")
         elif value <= 0:
@@ -53,10 +60,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """position on X axis"""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """set position on X axis"""
         if not isinstance(value, int):
             raise TypeError(f"x must be an integer")
         elif value < 0:
@@ -66,10 +75,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """position on Y axis"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """set position on Y axis"""
         if not isinstance(value, int):
             raise TypeError(f"y must be an integer")
         elif value < 0:
@@ -80,11 +91,7 @@ class Rectangle(Base):
     def area(self):
         """Returns the area of a rectangle."""
         return self.__height * self.__width
-    
+
     def display(self):
         """Displays the rectangle on screen."""
         print('\n'.join(['#' * self.__width for _ in range(self.__height)]))
- 
- 
-r1 = Rectangle(4, 6, 2, 1, 12)
-print(r1)
