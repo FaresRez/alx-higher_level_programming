@@ -99,11 +99,29 @@ class Rectangle(Base):
             print()
         for _ in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
+    
+    def update(self, *args):
+        for i,arg in enumerate(args):
+            self.id = args[0]
+            self.__width = args[1]
+            self.__height = args[2]
+            self.__x = args[3]
+            self.__y = args[4]
 
-r1 = Rectangle(2, 3, 2, 4)
-r1.display()
+r1 = Rectangle(10, 10, 10, 10)
+print(r1)
 
-print("---")
+r1.update(89)
+print(r1)
 
-r2 = Rectangle(3, 2, 1, 0)
-r2.display()
+r1.update(89, 2)
+print(r1)
+
+r1.update(89, 2, 3)
+print(r1)
+
+r1.update(89, 2, 3, 4)
+print(r1)
+
+r1.update(89, 2, 3, 4, 5)
+print(r1)
