@@ -94,4 +94,16 @@ class Rectangle(Base):
 
     def display(self):
         """Displays the rectangle on screen."""
-        print('\n'.join(['#' * self.__width for _ in range(self.__height)]))
+        espace=""
+        for _ in range(self.__y):
+            print()
+        for _ in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
+
+r1 = Rectangle(2, 3, 2, 4)
+r1.display()
+
+print("---")
+
+r2 = Rectangle(3, 2, 1, 0)
+r2.display()
