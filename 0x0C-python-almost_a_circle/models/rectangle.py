@@ -101,10 +101,21 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """Update rectangle's attributes (if possible)."""
-        if args is ():
+        if args == ():
             for key, arg in kwargs.items():
                 setattr(self, key, arg)
         else:
             attribut_list = ['id', 'width', 'height', 'x', 'y']
             for attribut, arg in zip(attribut_list, args):
                 setattr(self, attribut, arg)
+
+    def to_dictionary(self):
+        """Return a dictionary with all the object's attributes."""
+        return {"id": getattr(self, "id"),
+                "width": getattr(self, "width"),
+                "height": getattr(self, "height"),
+                "x": getattr(self, "x"),
+                "y": getattr(self, "y")}
+
+
+
