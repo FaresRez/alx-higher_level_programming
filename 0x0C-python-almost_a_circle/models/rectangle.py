@@ -7,7 +7,6 @@ class Rectangle(Base):
     """Rectangle class inherit from Base"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """the init method"""
         assert isinstance(width, int), "width must be an integer"
         assert isinstance(height, int), "height must be an integer"
         assert isinstance(x, int), "x must be an integer"
@@ -100,8 +99,12 @@ class Rectangle(Base):
         for _ in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Update rectangle's attributes (if possible)."""
-        attribut_list = ['id', 'width', 'height', 'x', 'y']
-        for attribut, arg in zip(attribut_list, args):
-            setattr(self, attribut, arg)
+        if args is ():
+            for key, arg in kwargs.items():
+                setattr(self, key, arg)
+        else:
+            attribut_list = ['id', 'width', 'height', 'x', 'y']
+            for attribut, arg in zip(attribut_list, args):
+                setattr(self, attribut, arg)
