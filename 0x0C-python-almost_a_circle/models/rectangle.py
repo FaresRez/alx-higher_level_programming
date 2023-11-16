@@ -94,32 +94,14 @@ class Rectangle(Base):
 
     def display(self):
         """Displays the rectangle on screen."""
-        espace=""
+        espace = ""
         for _ in range(self.__y):
             print()
         for _ in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
-    
+
     def update(self, *args):
-        attribut_list = ['id','width','height','x','y']
-        for attribut,arg in zip(attribut_list, args):
-            setattr(self, attribut ,arg)
-            # print(f'att={attribut_list[i]} and arg = {arg}')
-
-r1 = Rectangle(10, 10, 10, 10)
-print(r1)
-
-r1.update(89)
-print(r1)
-
-r1.update(89, 2)
-print(r1)
-
-r1.update(89, 2, 3)
-print(r1)
-
-r1.update(89, 2, 3, 4)
-print(r1)
-
-r1.update(89, 2, 3, 4, 5)
-print(r1)
+        """Update rectangle's attributes (if possible)."""
+        attribut_list = ['id', 'width', 'height', 'x', 'y']
+        for attribut, arg in zip(attribut_list, args):
+            setattr(self, attribut, arg)
