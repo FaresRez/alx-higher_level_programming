@@ -101,12 +101,10 @@ class Rectangle(Base):
             print(" " * self.__x + "#" * self.__width)
     
     def update(self, *args):
-        for i,arg in enumerate(args):
-            self.id = args[0]
-            self.__width = args[1]
-            self.__height = args[2]
-            self.__x = args[3]
-            self.__y = args[4]
+        attribut_list = ['id','width','height','x','y']
+        for attribut,arg in zip(attribut_list, args):
+            setattr(self, attribut ,arg)
+            # print(f'att={attribut_list[i]} and arg = {arg}')
 
 r1 = Rectangle(10, 10, 10, 10)
 print(r1)
