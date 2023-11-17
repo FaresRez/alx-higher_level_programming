@@ -27,6 +27,15 @@ class Base:
         with open(f'{cls.__name__}.json',mode="w", encoding="utf-8") as f:
             obj_dict = [obj.to_dictionary() for obj in list_objs]
             f.write(cls.to_json_string(obj_dict))
+    
+    @staticmethod
+    def from_json_string(json_string):
+        """Create a string representation from a string JSON"""
+        if json_string is None:
+            return []
+        return json.loads(json_string)
+
+
             
 
 
