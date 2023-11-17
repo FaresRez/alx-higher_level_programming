@@ -13,15 +13,21 @@ class Base:
         else:
             self.id = id
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """Return a JSON from a list of dict"""
         return json.dumps([x for x in list_dictionaries])
     
+    
     @classmethod
     def save_to_file(cls, list_objs):
         """Save the JSON obj into file"""
-        with open(f'{cls.__name__}.json',mode="w", encoding="utf-8")as f:
-            f.write([obj.to for obj in list_objs])
+        if list_objs is None:
+            list_objs = []
+        with open(f'{cls.__name__}.json',mode="w", encoding="utf-8") as f:
+            obj_dict = [obj.to_dictionary() for obj in list_objs]
+            f.write(cls.to_json_string(obj_dict))
+            
 
 
 
