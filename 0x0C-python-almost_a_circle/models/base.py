@@ -21,7 +21,11 @@ class Base:
     
     @classmethod
     def save_to_file(cls, list_objs):
-        """Save the JSON obj into file"""
+        """Save the JSON obj into file
+        
+            Args:
+                list_obj (List[dict]): List of dictionnary object
+        """
         if list_objs is None:
             list_objs = []
         with open(f'{cls.__name__}.json',mode="w", encoding="utf-8") as f:
@@ -30,10 +34,36 @@ class Base:
     
     @staticmethod
     def from_json_string(json_string):
-        """Create a string representation from a string JSON"""
+        """Create a string representation from a string JSON
+
+            Args:
+                json_string (str): The JSON string
+        """
         if json_string is None:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Create an instance of this class from dictionary"""
+        if cls.__name__ == "Rectangle":
+            new = cls(1, 1)
+        else:
+            new = cls(1)
+        cls.update(new, **dictionary)
+        return new
+    
+    @classmethod
+    def load_from_file(cls):
+        """Load all objects from file and returns them as a list"""
+        try:
+            with open(f'{cls.__name__}.json',mode="r", encoding="utf-8") as f:
+                list_dict = Base.from_json_string(f.read())
+                return [cls.create(**di) for di in list_dict]
+        except FileNotFoundError as e:
+            return []
+
+
 
 
             
