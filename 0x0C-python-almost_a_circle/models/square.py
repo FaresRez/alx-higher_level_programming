@@ -14,6 +14,7 @@ class Square(Rectangle):
     
     @property
     def size(self):
+        """"""
         return self.width
     
     @size.setter
@@ -22,7 +23,17 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        """Update rectangle's attributes (if possible)."""
+        """Update rectangle's attributes (if possible).
+        
+            Args:
+            *args (ints): New attribute values.
+                1st argument represents id attribute
+                2nd argument represents width attribute
+                3rd argument represent height attribute
+                4th argument represents x attribute
+                5th argument represents y attribute
+            **kwargs (dict): New key/value pairs of attributes.
+        """
         if args == ():
             for key, arg in kwargs.items():
                 setattr(self, key, arg)
