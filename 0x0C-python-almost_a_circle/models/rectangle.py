@@ -4,7 +4,20 @@ from base import Base
 
 
 class Rectangle(Base):
-    """Rectangle class inherit from Base"""
+    """Rectangle class inherit from Base
+
+        Args:
+            width (int): The width of the new Rectangle.
+            height (int): The height of the new Rectangle.
+            x (int): The x coordinate of the new Rectangle.
+            y (int): The y coordinate of the new Rectangle.
+            id (int): The identity of the new Rectangle.
+        Raises:
+            TypeError: If either of width or height is not an int.
+            ValueError: If either of width or height <= 0.
+            TypeError: If either of x or y is not an int.
+            ValueError: If either of x or y < 0.
+    """
 
     def __init__(self, width, height, x=0, y=0, id=None):
         assert isinstance(width, int), "width must be an integer"
@@ -100,7 +113,17 @@ class Rectangle(Base):
             print(" " * self.__x + "#" * self.__width)
 
     def update(self, *args, **kwargs):
-        """Update rectangle's attributes (if possible)."""
+        """Update rectangle's attributes (if possible).
+
+            Args:
+            *args (ints): New attribute values.
+                1st argument represents id attribute
+                2nd argument represents width attribute
+                3rd argument represent height attribute
+                4th argument represents x attribute
+                5th argument represents y attribute
+            **kwargs (dict): New key/value pairs of attributes.
+        """
         if args == ():
             for key, arg in kwargs.items():
                 setattr(self, key, arg)
@@ -116,16 +139,3 @@ class Rectangle(Base):
                 "height": getattr(self, "height"),
                 "x": getattr(self, "x"),
                 "y": getattr(self, "y")}
-
-
-
-r1 = Rectangle(10, 7, 2, 8)
-r2 = Rectangle(2, 4)
-list_rectangles_input = [r1, r2]
-
-Rectangle.save_to_file(list_rectangles_input)
-
-list_rectangles_output = Rectangle.load_from_file()
-
-for rect in list_rectangles_input:
-    print("[{}] {}".format(id(rect), rect))
