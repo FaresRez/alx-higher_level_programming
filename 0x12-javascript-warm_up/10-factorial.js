@@ -1,6 +1,7 @@
 #!/usr/bin/node
 function factorial (a, b) {
-    console.log(sum);
+    if 
+    return factorial(a, b)*
   }
   
   factorial(Number(process.argv[2]), Number(process.argv[3]));
