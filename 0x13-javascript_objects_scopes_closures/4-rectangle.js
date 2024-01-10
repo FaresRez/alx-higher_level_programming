@@ -13,6 +13,17 @@ class Rectangle {
       console.log();
     }
   }
+
+  rotate () {
+    const r = this.width;
+    this.width = this.height;
+    this.height = r;
+  }
+
+  double () {
+    this.width *= 2;
+    this.height *= 2;
+  }
 }
 
 module.exports = Rectangle;
