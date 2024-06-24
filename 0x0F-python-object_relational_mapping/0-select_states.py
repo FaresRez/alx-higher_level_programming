@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" lists id and name from a database"""
+""" lists id and name from a database """
 import MySQLdb
 import sys
 
