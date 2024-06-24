@@ -1,11 +1,11 @@
 #!/usr/bin/python3
+""" lists id and name from a database """
 
 import MySQLdb
 import sys
 
-""" lists id and name from a database """
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     db = MySQLdb.connect(
             host="localhost",
             user=sys.argv[1],
@@ -21,6 +21,5 @@ if __name__ = "__main__":
     rows = cursor.fetchall()
     for row in rows:
         print(row)
-    cur.close()
+    cursor.close()
     db.close()
-
