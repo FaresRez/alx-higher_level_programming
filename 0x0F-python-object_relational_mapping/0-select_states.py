@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-""" lists id and name from a database """
+
 import MySQLdb
 import sys
+
+""" lists id and name from a database """
 
 if __name__ = "__main__":
     db = MySQLdb.connect(
