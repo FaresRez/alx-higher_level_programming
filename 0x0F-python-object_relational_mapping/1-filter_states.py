@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" lists id and name from a database """
+""" lists id and name from a database that starts with N """
 
 import MySQLdb
 import sys
@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    query = "SELECT * FROM states WHERE name LIKE 'N%'"
+    query = "SELECT * FROM states WHERE name LIKE BINARY 'N%'"
     cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
