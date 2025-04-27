@@ -6,13 +6,4 @@
 class Square:
     """define a private attribute size"""
     def __init__(self, size=0):
-        if type(size) is not int:
-            raise TypeError("size must be an integer")     
-        if size < 0:
-            raise ValueError("size must be >= 0")
         self.__size = size
-
-
-my_square_1 = Square(-1)
-print(type(my_square_1))
-print(my_square_1.__dict__)
