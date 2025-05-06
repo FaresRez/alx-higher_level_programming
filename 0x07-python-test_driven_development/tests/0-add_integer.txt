@@ -1,0 +1,22 @@
+
+>>> add_integer(2, 99)
+101
+
+>>> add_integer(-2, 99)
+97
+
+>>> add_integer(2.1, 98.2)
+100
+
+>>> add_integer(2)
+-100
+
+>>> add_integer("2", 98)
+Traceback (most recent call last):
+    ...
+ValueError: a must be an integer
+
+>>> add_integer(2, "98")
+Traceback (most recent call last):
+    ...
+ValueError: b must be an integer
