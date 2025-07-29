@@ -7,4 +7,4 @@ import json
 
 
 def to_json_string(my_obj):
-    return json.dumps(my_obj, default=lambda obj: obj.__dict__)
+    return json.dumps(my_obj)
