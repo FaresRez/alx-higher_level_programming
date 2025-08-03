@@ -7,6 +7,7 @@ Load, add, save
 if __name__ == "__main__":
     import sys
     import importlib
+    import json
 
     save_to_json_file = importlib.import_module('5-save_to_json_file')\
         .save_to_json_file
@@ -15,7 +16,7 @@ if __name__ == "__main__":
 
     try:
         my_list = list(load_from_json_file("add_item.json"))
-    except FileNotFoundError:
+    except (FileNotFoundError, json.JSONDecodeError):
         my_list = []
 
     my_list.extend(sys.argv[1:])
