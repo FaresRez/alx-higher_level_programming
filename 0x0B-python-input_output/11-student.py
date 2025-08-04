@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Student to JSON with filter"""
+"""Student to disk and reload"""
 
 
 class Student:
@@ -19,3 +19,7 @@ class Student:
             }
         else:
             return self.__dict__
+
+
+def reload_from_json(self, json):
+    return self.__dict__.update(json)
