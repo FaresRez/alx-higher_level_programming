@@ -20,6 +20,5 @@ class Student:
         else:
             return self.__dict__
 
-
-def reload_from_json(self, json):
-    return self.__dict__.update(json)
+    def reload_from_json(self, json):
+        return self.__dict__.update(json)
