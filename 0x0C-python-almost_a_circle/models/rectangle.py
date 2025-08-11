@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """The class Base that handle id"""
+
 from base import Base
 
 
