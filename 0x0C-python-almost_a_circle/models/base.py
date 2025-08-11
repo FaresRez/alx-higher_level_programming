@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-import json
 """The class Base that handle id"""
 
 
 class Base:
     """Base class
-
         Private Class Attributes:
         __nb_object (int): Number of instantiated Bases.
     """
