@@ -24,8 +24,10 @@ class Rectangle(Base):
         """
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
-        if name in ["width", "height", "x", "y"] and value < 0:
+        if name in ["width", "height"] and value <= 0:
             raise ValueError(f"{name} must be > 0")
+        if name in ["x", "y"] and value < 0:
+            raise ValueError(f"{name} must be >= 0")
 
     @property
     def width(self):
