@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""The class Base that handle id"""
+"""Defines the Rectangle class that inherits from Base."""
+
 
 from base import Base
 
@@ -15,7 +16,12 @@ class Rectangle(Base):
         self.y = y
 
     def setters_validation(self, value, name):
-        """Validate the value for width, height, x, and y."""
+        """Validate an attribute value.
+
+            Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is <= 0 for width/height or < 0 for x/y.
+        """
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if name in ["width", "height", "x", "y"] and value < 0:
