@@ -64,3 +64,12 @@ class Rectangle(Base):
     def y(self, value):
         self.setters_validation(value, "y")
         self.__y = value
+
+    def area(self):
+        """Calculate the area of the rectangle."""
+        return self.width * self.height
+
+    def display(self):
+        """Print the rectangle using the '#' character."""
+        for _ in range(self.y):
+            print("#" * self.x)
