@@ -2,7 +2,7 @@
 """Defines the Rectangle class that inherits from Base."""
 
 
-from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
@@ -71,11 +71,11 @@ class Rectangle(Base):
 
     def display(self):
         """Print the rectangle using the '#' character."""
-        for _ in range(y):
+        for _ in range(self.y):
             print()
         for _ in range(self.height):
             print(" " * self.x + "#" * self.width)
 
     def __str__(self):
-        return f"[Rectangle] ({self.id})\
-               {self.x}/{self.y} - {self.width}/{self.height}"
+        x = f"{self.id}) {self.x}/{self.y}"
+        return f"[Rectangle] ({x} - {self.width}/{self.height}"
