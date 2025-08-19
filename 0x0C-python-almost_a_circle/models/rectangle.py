@@ -77,5 +77,6 @@ class Rectangle(Base):
             print(" " * self.x + "#" * self.width)
 
     def __str__(self):
+        """Return a string representation of the rectangle."""
         x = f"{self.id}) {self.x}/{self.y}"
         return f"[Rectangle] ({x} - {self.width}/{self.height}"
