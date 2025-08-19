@@ -80,3 +80,8 @@ class Rectangle(Base):
         """Return a string representation of the rectangle."""
         x = f"{self.id}) {self.x}/{self.y}"
         return f"[Rectangle] ({x} - {self.width}/{self.height}"
+
+    def update(self, *args):
+        attribute_names = ['id', 'width', 'height', 'x', 'y']
+        for name, value in zip(attribute_names, args):
+            setattr(self, name, value)
