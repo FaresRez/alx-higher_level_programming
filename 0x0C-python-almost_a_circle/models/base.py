@@ -24,3 +24,25 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
+
+    def to_dictionary(self):
+        """Return a dictionary representation of the rectangle."""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Write the JSON string representation of list_objs to a file."""
+        filename = cls.__name__ + ".json"
+        dict_list = []
+        with open(filename, 'w') as f:
+            if list_objs is None:
+                f.write(dict_list)
+            else:
+                dict_list = [obj.to_dictionary() for obj in list_objs]
+                f.write(cls.to_json_string(dict_list))
