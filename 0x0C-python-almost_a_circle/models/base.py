@@ -42,7 +42,7 @@ class Base:
         dict_list = []
         with open(filename, 'w') as f:
             if list_objs is None:
-                f.write(dict_list)
+                f.write("[]")
             else:
                 dict_list = [obj.to_dictionary() for obj in list_objs]
                 f.write(cls.to_json_string(dict_list))
