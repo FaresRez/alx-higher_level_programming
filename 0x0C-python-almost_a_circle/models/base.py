@@ -36,3 +36,7 @@ class Base:
             else:
                 dict_list = [obj.to_dictionary() for obj in list_objs]
                 f.write(cls.to_json_string(dict_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        return json.loads(json_string) if json_string else []
