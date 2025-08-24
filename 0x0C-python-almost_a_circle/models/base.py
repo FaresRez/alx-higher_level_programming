@@ -60,3 +60,18 @@ class Base:
             f.read(dict)
             list_inst = cls.from_json_string(dict)
         return [cls.create(**inst) for inst in list_inst]
+
+    def save_to_file_csv(cls, list_objs):
+        """Serialize in CSV."""
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w') as f:
+            if list_objs is None or list_objs == []:
+                f.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
