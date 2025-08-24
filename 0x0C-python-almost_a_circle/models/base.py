@@ -61,6 +61,7 @@ class Base:
             list_inst = cls.from_json_string(dict)
         return [cls.create(**inst) for inst in list_inst]
 
+    @classmethod
     def save_to_file_csv(cls, list_objs):
         """Serialize in CSV."""
         filename = cls.__name__ + ".csv"
